@@ -1,0 +1,9 @@
+add App, currently, daily, and warning components
+currently is shown as the lagest on the page by default
+daily is shown beside or below, when a day from daily is selected it is shown large
+show components using fake json data
+style components & add skycons
+set state
+add api calls(may have to limit calls?)
+set api data to state
+pass state as props to components
