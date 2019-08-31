@@ -1,0 +1,14 @@
+.currently{
+  display: flex; 
+  flex-flow: column;
+  justify-content: space-evenly;
+  }
+
+  .currently *{
+    text-align: center;
+  }
+
+  .currently .weather-display{
+    display: flex;
+    justify-content: space-evenly;
+  }

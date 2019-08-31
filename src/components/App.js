@@ -1,5 +1,6 @@
 import React from "react";
 import Currenty from "./Currently";
+import Warnings from "./Warnings";
 import Call from "../apis/api";
 
 class App extends React.Component {
@@ -10,18 +11,19 @@ class App extends React.Component {
     errorMessage: null
   };
 
-  componentDidMount(){
+  componentDidMount() {
     //get latlng or backup
-  /*window.navigator.geolocation.getCurrentPosition(
+    /*window.navigator.geolocation.getCurrentPosition(
       position => this.setState({ lat: position.coords.latitude, lng: position.coords.longitude }),
       err => this.setState({ errorMessage: err.message })
     );*/
-    // call weather api? 
+    // call weather api?
   }
   render() {
-    return(
+    return (
       <div>
-        <Currenty currentWeather={Call}/>
+        <Warnings alerts={Call.alerts}/>
+        <Currenty currentWeather={Call} />
       </div>
     );
   }
@@ -89,55 +91,10 @@ function getWeather(lat, lng) {
     dataType: 'jsonp',
     success: function(results) {
 
-      var tempF = results.currently.temperature.toFixed(0);
+      
       var tempC = ((tempF - 32) * (5 / 9)).toFixed(0);
-      $("#theTemp").text(tempF + "°F");
-      $("#theTemp").mouseover(function() {
-        $("#theTemp").text(tempC + "° C");
-      })
-      $("#theTemp").mouseout(function() {
-        $("#theTemp").text(tempF + "° F");
+     
 
-      }); 
-      var fixDate = function(date) {
-        // var unixtime = results.hourly.data[0].time;
-
-        var newDate = new Date();
-        newDate.setTime(date * 1000);
-        var dateString = newDate.toUTCString()
-        return dateString
-      }
-
-      //display weather condition 
-      var hourlyTime = results.hourly.data[0].time;
-      // console.log(fixDate(hourlyTime))
-
-      var dailyCondition = results.daily.summary;   
-      var hourlyCondition = results.hourly.summary;  
-      var cCondition = results.currently.summary;   
-      var icondition = results.currently.icon;
-      var icons = new Skycons(),
-        list = [
-          "clear-day", "clear-night", "partly-cloudy-day",
-          "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
-          "fog"
-        ],
-        i;
-
-      for (i = list.length; i--;) {
-        icons.set(list[i], list[i]);   
-        if (icondition === list[i]) {
-          $("#" + list[i]).show()
-
-        } else {
-          $("#" + list[i]).hide();
-        }
-      }
-
-      icons.play();
-      $("#condition").html(cCondition);
-    }
-  })
-}
+      
 
 */
