@@ -1,6 +1,7 @@
 import React from "react";
 import Currenty from "./Currently";
 import Warnings from "./Warnings";
+import Daily from "./Daily";
 import Call from "../apis/api";
 
 class App extends React.Component {
@@ -22,8 +23,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Warnings alerts={Call.alerts}/>
+        <Warnings alerts={Call.alerts} />
         <Currenty currentWeather={Call} />
+        <Daily data={Call.daily.data} />
       </div>
     );
   }
