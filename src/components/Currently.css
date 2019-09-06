@@ -9,7 +9,13 @@
   text-align: center;
 }
 
+.currently .weather-display {
+  display: flex;
+  flex-direction: column;
+}
+
 .currently .color-circle {
+  align-self: center;
   display: flex;
   flex-flow: column;
   justify-content: center;

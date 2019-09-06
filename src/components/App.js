@@ -3,6 +3,7 @@ import Currenty from "./Currently";
 import Warnings from "./Warnings";
 import Daily from "./Daily";
 import Call from "../apis/api";
+import "./App.css";
 
 class App extends React.Component {
   state = {
@@ -22,7 +23,7 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="App">
         <Warnings alerts={Call.alerts} />
         <Currenty currentWeather={Call} />
         <Daily data={Call.daily.data} />

@@ -17,12 +17,11 @@ const Currently = ({ currentWeather }) => {
       {/* <h1>Your Current Weather</h1> */}
 
       <div className="weather-display">
-        <p>
+        <p className="timeStamp">
           As of{" "}
-          {
-            timeConverter(time)
-              .split(",")
-              .reverse()[0]
+          {timeConverter(time)
+          // .split(",")
+          // .reverse()[0]
           }
         </p>
         <div className="color-circle">
@@ -32,14 +31,13 @@ const Currently = ({ currentWeather }) => {
           <h2 className="current-temp">{temperature.toFixed(0)}°</h2>
           <p>Feels like: {apparentTemperature.toFixed(0)}°</p>
         </div>
-
-        <Skycons
-          style={{ width: "10em" }}
-          color=""
-          icon={currentWeather.currently.icon.toUpperCase()}
-          autoplay={true}
-        />
-        <p>{summary}</p>
+        <div>
+          <Skycons
+            icon={currentWeather.currently.icon.toUpperCase()}
+            autoplay={true}
+          />
+          <p>{summary}</p>
+        </div>
       </div>
     </div>
   );
